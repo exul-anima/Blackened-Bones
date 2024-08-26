@@ -16,5 +16,5 @@ Read the wiki [here](https://github.com/exul-anima/Blackened-Bones/wiki).
 The HKX file format for Havok 4.0.0-r1 is partially reversed, with notes throughout the source describing important aspects of the spec. It should be good enough that a fully open-source implementation can be made later by someone else with this as a base. I just don't have the time to do that full reversing myself.
 
 ## Disclaimers
-- This has only been tested on Blender 3.6.7; while other versions might work, I don't know for sure. For now, 3.6.7 will be the only blender version officially supported by this addon.
+- This has only been tested on Blender 3.6.7. _**4.X DOES NOT WORK.**_ For now, 3.6.7 will be the only blender version officially supported by this addon.
 - As this is only a partial reversing of the format, you will need to get a donor file for the plugin to take certain data from. I cannot provide this data for copyright reasons so you will have to source it yourself from the game (more info in the wiki).
