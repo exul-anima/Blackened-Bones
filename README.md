@@ -1,7 +1,7 @@
 # Blackened-Bones
 
 ## What is this?
-This is a blender addon to import/export Havok physics (HKX files) for characters in Super Smash Bros. Brawl. The game uses an ancient version of the Havok SDK released in 2006 (4.0.0-r1) that's now completely lost. This is a partial reverse-engineering of the format, enough to import the files for editing and previewing in blender, and to export them back into the game.
+This is a blender addon to import/export Havok physics (HKX files) for characters in Super Smash Bros. Brawl. The game uses an ancient version of the Havok SDK released in July 2006 (4.0.0-r1) that's now completely lost. This is a partial reverse-engineering of the format, enough to import the files for editing and previewing in blender, and to export them back into the game.
 
 ## Prerequisites
 - Blender 3.6 LTS
