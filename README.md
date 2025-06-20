@@ -16,4 +16,4 @@ The HKX file format for Havok 4.0.0-r1 is partially reversed, with notes through
 
 ## Disclaimers
 - _**4.X DOES NOT WORK.**_ For now, 3.6 LTS will be the only blender version officially supported by this addon.
-- As this is only a partial reversing of the format, you will need to get a donor file for the plugin to take certain data from. I cannot provide this data for copyright reasons so you will have to source it yourself from the game (more info in the wiki).
+- As this is only a partial reversing of the format, you will need to get a donor file for the plugin to take certain data from. I cannot provide this data for copyright reasons so you will have to source it yourself from the game (more info in the [wiki](https://github.com/exul-anima/Blackened-Bones/wiki)).
