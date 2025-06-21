@@ -609,7 +609,7 @@ def havokImport(filepath):
     return None
 
  
-class Importer(Operator, ExportHelper):
+class Importer(Operator, ImportHelper):
     bl_idname = "blackenedbones.import"
     bl_label = "Import Havok 4.0.0-r1 Packfile"
     bl_options = {"PRESET", "UNDO"}
