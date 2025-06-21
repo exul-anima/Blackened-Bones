@@ -23,26 +23,26 @@ from . import HavokExport
 
 # Only needed if you want to add into a dynamic menu
 def menu_func_import(self, context):
-    self.layout.operator(HavokImporter.Importer.bl_idname, text="Havok 4.0.0-r1 physics (.hkx)")
+    self.layout.operator(HavokImport.Importer.bl_idname, text="Havok 4.0.0-r1 physics (.hkx)")
 
 def menu_func_export(self, context):
-    self.layout.operator(HavokExporter.Exporter.bl_idname, text="Havok 4.0.0-r1 physics (.hkx)")
+    self.layout.operator(HavokExport.Exporter.bl_idname, text="Havok 4.0.0-r1 physics (.hkx)")
 
 
 # Register and add to the "file selector" menu (required to use F3 search "Text Export Operator" for quick access).
 def register():
-    bpy.utils.register_class(HavokImporter.Importer)
-    bpy.utils.register_class(HavokExporter.Exporter)
+    bpy.utils.register_class(HavokImport.Importer)
+    bpy.utils.register_class(HavokExport.Exporter)
     bpy.types.TOPBAR_MT_file_import.append(menu_func_import)
     bpy.types.TOPBAR_MT_file_export.append(menu_func_export)
 
 
 def unregister():
-    bpy.utils.unregister_class(HavokImporter.Importer)
-    bpy.utils.unregister_class(HavokExporter.Exporter)
+    bpy.utils.unregister_class(HavokImport.Importer)
+    bpy.utils.unregister_class(HavokExport.Exporter)
     bpy.types.TOPBAR_MT_file_import.remove(menu_func_import)
     bpy.types.TOPBAR_MT_file_export.remove(menu_func_export)
 
 
-#if __name__ == "__main__":
-#    register()
+if __name__ == "__main__":
+    register()
