@@ -44,5 +44,5 @@ def unregister():
     bpy.types.TOPBAR_MT_file_export.remove(menu_func_export)
 
 
-if __name__ == "__main__":
-    register()
+#if __name__ == "__main__":
+#    register()
