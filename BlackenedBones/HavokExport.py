@@ -1042,7 +1042,7 @@ def createTable1(rigidBodyArray, constraintArray, dataBlocksAttributes, offsetDa
     for x in range(0x40, len(table), 0x04):
         if x == 0x54:
             table[x:x + 4] = struct.pack(">I", dataTypeDelimit - 0x590)
-        elif bytesToWord(table, x) < headerPos2:
+        elif bytesToWord(table, x) < headerPos2 - 0x590:
             table[x:x + 4] = struct.pack(">I", bytesToWord(table, x) + headerPos1 - 0x720)
         else:
             table[x:x + 4] = struct.pack(">I", bytesToWord(table, x) + headerPos2 - 0x810)
