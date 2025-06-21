@@ -611,7 +611,7 @@ def havokImport(filepath):
  
 class Importer(Operator, ImportHelper):
     bl_idname = "blackenedbones.import"
-    bl_label = "Import Havok 4.0.0-r1 Packfile"
+    bl_label = "Import Havok Packfile"
     bl_options = {"PRESET", "UNDO"}
  
     filename_ext = ".hkx"
