@@ -1416,7 +1416,7 @@ def havokExport(filepath):
  
 class Exporter(Operator, ExportHelper):
     bl_idname = "blackenedbones.export"
-    bl_label = "Export Havok 4.0.0-r1 Packfile"
+    bl_label = "Export Havok Packfile"
     bl_options = {"PRESET", "UNDO"}
  
     filename_ext = ".hkx"
