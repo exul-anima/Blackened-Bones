@@ -1003,10 +1003,6 @@ def createTable3(rigidBodyArray, constraintArray, dataBlocksAttributes, offsetDa
     0x00, 0x00, 0x01, 0xB0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xC0, 
     ])
     
-    ## !!! TO DO TO DO TO DO !!!
-    ## Check how headerPos1 is calculated! It seems value at 0x1C relying on it is messed up.
-    ## Also check every other variable that relies on headerPos1 in case those are wrong too.
-    
     table[0x18:0x1C] = struct.pack(">I", bytesToWord(table, 0x18) + headerPos1 - 0x720)
     table[0x24:0x28] = struct.pack(">I", bytesToWord(table, 0x24) + headerPos1 - 0x720)
     
