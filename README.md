@@ -9,7 +9,7 @@ This is a blender addon to import/export Havok physics (HKX files) for character
 - [Rigid Body Bones addon](https://github.com/Pauan/blender-rigid-body-bones) by Pauan
 
 ## Instructions
-Read the wiki [here](https://github.com/exul-anima/Blackened-Bones/wiki). Common questions are answered in the [FAQ](https://github.com/exul-anima/Blackened-Bones/wiki/5.-FAQ).
+Read the wiki [here](https://github.com/exul-anima/Blackened-Bones/wiki). Common questions are answered in the [wiki's FAQ](https://github.com/exul-anima/Blackened-Bones/wiki/5.-FAQ).
 
 ## File Format Documentation
 The HKX file format for Havok 4.0.0-r1 is partially reversed, with notes throughout the source describing important aspects of the spec. It should be good enough that a fully open-source implementation can be made later by someone else with this as a base. I just don't have the time to do that full reversing myself.
