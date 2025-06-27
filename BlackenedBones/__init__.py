@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Blackened Bones",
     "author": "Exul Anima",
-    "version": (1, 0, 0),
+    "version": (1, 0, 1),
     # Minimum version tested
     "blender": (3, 6, 0),
     "location": "File > Import-Export > Havok 4.0.0-r1 physics (.hkx)",
