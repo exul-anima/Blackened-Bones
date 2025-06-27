@@ -1073,8 +1073,9 @@ def buildHKX(hkx, rigidBodyArray, constraintArray, modelArmatureObj):
     for x in range(0x10 - (len(headerDataPointers) % 0x10) + 0x10):
         headerDataPointers.append(0x00)  # 16-byte-aligned padding for string.
     
-    finalHKX[0x6D0:0x720] = headerDataPointers  # Insert new header pointers data block.
-    headerPos1 = 0x6D0 + len(headerDataPointers)    # Record new position of the data block.
+    finalHKX[0x6D0:0x720] = headerDataPointers              # Insert new header pointers data block.
+    headerPos1 = 0x6D0 + len(headerDataPointers)            # Record new position of the data block.
+    headerDataPointersSizeDiff = len(headerDataPointers) - 0x50     # Size difference between original data block and new data block.
     
     # Creates more words of null bytes necessary for pointers filled in at runtime.
     headerDataPointers2 = bytearray()
@@ -1088,8 +1089,8 @@ def buildHKX(hkx, rigidBodyArray, constraintArray, modelArmatureObj):
     for x in range(0x10 - (len(headerDataPointers2) % 0x10)):
         headerDataPointers2.append(0x00)     # 16-byte-aligned padding for string.
     
-    finalHKX[(headerPos1 + 0x70):(headerPos1 + 0xF0)] = headerDataPointers2   # Insert new header pointers data block.
-    headerPos2 = headerPos1 + 0x70 + len(headerDataPointers2)   # Record new position of the data block.
+    finalHKX[(headerPos1 + 0x70):(headerPos1 + 0xF0)] = headerDataPointers2     # Insert new header pointers data block.
+    headerPos2 = headerPos1 + 0x70 + headerDataPointersSizeDiff + len(headerDataPointers2)  # Record new position of the data block.
     
     extraTableOffset = len(finalHKX) - len(hkxHeader)   # Extra offset to push forward or back all the pointer tables relative to vanilla Toon Link.
     dataBlocksAttributes = [[], []]     # List of locations and lengths of new data blocks (rigid bodies and constraints).
