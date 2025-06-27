@@ -72,14 +72,6 @@ def lineMidpoint(line):
         midpoint.append((point1[c] + point2[c]) / 2)
     return midpoint
 
-def lineAngle(line):
-    angle = []
-    point1 = line[0]
-    point2 = line[1]
-    for c in range(len(point1)):
-        midpoint.append((point1[c] + point2[c]) / 2)
-    return midpoint
-
 def lineLength(line):
     length = 0
     point1 = line[0]
@@ -865,9 +857,9 @@ def createTable1(rigidBodyArray, constraintArray, dataBlocksAttributes, offsetDa
     ])
     
     for x in range(0x40, len(table), 0x04):
-        if x == 0x54:
+        if bytesToWord(table, x) == 0x240:
             table[x:x + 4] = struct.pack(">I", dataTypeDelimit - 0x590)
-        elif bytesToWord(table, x) < headerPos2 - 0x590:
+        elif bytesToWord(table, x) < 0x240:
             table[x:x + 4] = struct.pack(">I", bytesToWord(table, x) + headerPos1 - 0x720)
         else:
             table[x:x + 4] = struct.pack(">I", bytesToWord(table, x) + headerPos2 - 0x810)
@@ -1075,7 +1067,6 @@ def buildHKX(hkx, rigidBodyArray, constraintArray, modelArmatureObj):
     
     finalHKX[0x6D0:0x720] = headerDataPointers              # Insert new header pointers data block.
     headerPos1 = 0x6D0 + len(headerDataPointers)            # Record new position of the data block.
-    headerDataPointersSizeDiff = len(headerDataPointers) - 0x50     # Size difference between original data block and new data block.
     
     # Creates more words of null bytes necessary for pointers filled in at runtime.
     headerDataPointers2 = bytearray()
@@ -1090,7 +1081,7 @@ def buildHKX(hkx, rigidBodyArray, constraintArray, modelArmatureObj):
         headerDataPointers2.append(0x00)     # 16-byte-aligned padding for string.
     
     finalHKX[(headerPos1 + 0x70):(headerPos1 + 0xF0)] = headerDataPointers2     # Insert new header pointers data block.
-    headerPos2 = headerPos1 + 0x70 + headerDataPointersSizeDiff + len(headerDataPointers2)  # Record new position of the data block.
+    headerPos2 = headerPos1 + 0x70 + len(headerDataPointers2)   # Record new position of the data block.
     
     extraTableOffset = len(finalHKX) - len(hkxHeader)   # Extra offset to push forward or back all the pointer tables relative to vanilla Toon Link.
     dataBlocksAttributes = [[], []]     # List of locations and lengths of new data blocks (rigid bodies and constraints).
@@ -1257,8 +1248,3 @@ class Exporter(Operator, ExportHelper):
             ShowMessageBox("Exported Havok physics successfully!", "Havok Exporter", "INFO")
         print("Exported Havok Packfile: ", self.filepath, '\n')
         return {"FINISHED"}
- 
- 
-#register_class(Exporter)
- 
-#bpy.ops.test.export_tst("INVOKE_DEFAULT")
