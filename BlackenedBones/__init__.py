@@ -38,11 +38,7 @@ def register():
 
 
 def unregister():
-    bpy.utils.unregister_class(HavokImport.Importer)
-    bpy.utils.unregister_class(HavokExport.Exporter)
     bpy.types.TOPBAR_MT_file_import.remove(menu_func_import)
     bpy.types.TOPBAR_MT_file_export.remove(menu_func_export)
-
-
-#if __name__ == "__main__":
-#    register()
+    bpy.utils.unregister_class(HavokImport.Importer)
+    bpy.utils.unregister_class(HavokExport.Exporter)
